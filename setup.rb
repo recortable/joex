@@ -7,7 +7,7 @@
 #
 Frank.server.handler = "mongrel"
 Frank.server.hostname = "0.0.0.0"
-Frank.server.port = "3601"
+Frank.server.port = "3000"
 
 # ----------------------
 #  Static folder:

@@ -22,7 +22,7 @@
       being youssoupha
     </div>
     <div class="info">
-    joexpósito<br/>
+    jo exposito<br/>
     <a href="mailto:jo@joexposito.com">jo@joexposito.com</a>
     </div>
   </header>
@@ -45,7 +45,9 @@
       $("div#gallery").galleria({
           data_source: data,
           maxScaleRatio : 1,
-          thumbnails: 'numbers',
+		  clicknext: true,
+/*          thumbnails: false,*/
+		  transition: false, 
           debug: true,
           carouselSteps: 5
       });
