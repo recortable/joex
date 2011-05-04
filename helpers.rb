@@ -2,10 +2,7 @@ module FrankHelpers
 
 
   def images(group)
-    1.upto(group.size) do |n|
-      number = "%02d" % n
-      yield "#{group.path}/jo_by_#{number}.jpg"
-    end
+    1.upto(group.size).map{|a| "%02d" % a }.map{|number| "#{group.path}/jo_by_#{number}.jpg"}
   end
 
   def image_tag(group, path)
@@ -24,7 +21,7 @@ module FrankHelpers
 
 
   BEING = OpenStruct.new({:title => 'being youssoupha', :path => 'being'})
-  BEING.size = 64
+  BEING.size = 61
   BEING.height = 567
 
   IMAGES = {}

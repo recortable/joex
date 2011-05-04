@@ -4,8 +4,6 @@
 
 <script>
     var data = [
-        <% images(BEING) do |path| %>
-        {image: '/images/<%= path %>'},
-        <% end %>
+        <%= images(BEING).map{|f| "/images/#{f}"}.join(',') %>
     ];
 </script>
