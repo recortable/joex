@@ -3,5 +3,6 @@
 output/**
 tmp/**
 static/images/being*
+public/images/being/**
 output.zip
 
