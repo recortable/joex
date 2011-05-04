@@ -15,7 +15,7 @@ Frank.server.port = "3000"
 #  All files in this folder will be served up
 #  directly, without interpretation
 #
-Frank.static_folder = "static"
+Frank.static_folder = "public"
 
 # ----------------------
 #  Dynamic folder:

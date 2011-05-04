@@ -4,6 +4,6 @@
 
 <script>
     var data = [
-    <%= images(BEING).map{|f| "{image: '/images/#{f}'}"}.join(',') %>
+    <%= images(BEING).map{|f| "{image: '/images/being/#{f}.jpg', thumb: '/images/being/t/#{f}_t.jpg'}"}.join(',') %>
     ];
 </script>

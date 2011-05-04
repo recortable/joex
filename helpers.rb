@@ -2,7 +2,7 @@ module FrankHelpers
 
 
   def images(group)
-    1.upto(group.size).map{|a| "%02d" % a }.map{|number| "#{group.path}/jo_by_#{number}.jpg"}
+    1.upto(group.size).map{|a| "%02d" % a }.map{|number| "jo_by_#{number}"}
   end
 
   def image_tag(group, path)
