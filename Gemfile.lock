@@ -1,6 +1,25 @@
+GIT
+  remote: git://github.com/mattheworiordan/imagesize.git
+  revision: bd5be2afb088beba3f0d863cef4eac7db56ca804
+  specs:
+    imagesize (0.1.2)
+      activerecord (>= 2.1.0)
+
 GEM
   remote: http://rubygems.org/
   specs:
+    activemodel (3.0.7)
+      activesupport (= 3.0.7)
+      builder (~> 2.1.2)
+      i18n (~> 0.5.0)
+    activerecord (3.0.7)
+      activemodel (= 3.0.7)
+      activesupport (= 3.0.7)
+      arel (~> 2.0.2)
+      tzinfo (~> 0.3.23)
+    activesupport (3.0.7)
+    arel (2.0.9)
+    builder (2.1.2)
     daemons (1.0.10)
     frank (1.0.8)
       haml (>= 3.0)
@@ -11,6 +30,7 @@ GEM
       tilt (= 0.9)
     gem_plugin (0.2.3)
     haml (3.1.1)
+    i18n (0.5.0)
     mongrel (1.2.0.pre2)
       daemons (~> 1.0.10)
       gem_plugin (~> 0.2.3)
@@ -19,9 +39,13 @@ GEM
     net-ssh (2.1.4)
     rack (1.2.2)
     tilt (0.9)
+    tzinfo (0.3.27)
+    ya2yaml (0.30)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   frank
+  imagesize!
+  ya2yaml
