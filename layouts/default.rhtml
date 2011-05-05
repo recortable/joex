@@ -6,7 +6,7 @@
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Joexposito</title>
+  <title>being youssoupha - jo exposito</title>
   <meta name="description" content="">
   <meta name="author" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,14 +22,15 @@
       being youssoupha
     </div>
     <div class="info">
-    jo exposito<br/>
-    <a href="mailto:jo@joexposito.com">jo@joexposito.com</a>
+      jo exposito<br/>
+      <a href="mailto:jo@joexposito.com">jo@joexposito.com</a>
     </div>
   </header>
 
   <div id="main" role="main">
-      <%= yield %>
+    <%= yield %>
   </div>
+  <a id="toggle" href="#">+</a>
 
   <footer>
 
@@ -41,17 +42,75 @@
 <script src="/js/galleria/galleria-1.2.3.min.js"></script>
 <script src="/js/galleria/themes/classic/galleria.classic.min.js"></script>
 <script>
-  $(function() {
-      $("div#gallery").galleria({
-          data_source: data,
-          maxScaleRatio : 1,
-		  clicknext: true,
-/*          thumbnails: false,*/
-		  transition: false, 
-          debug: true,
-          carouselSteps: 5
-      });
-  })
+    $(function() {
+        $("div#gallery").galleria({
+            data_source: data,
+            maxScaleRatio : 1,
+            clicknext: true,
+            /*          thumbnails: false,*/
+            transition: false,
+            carouselSteps: 5,
+            idleTime: 3000,
+            idleSpeed: 0
+        });
+
+        var gallery = Galleria.get(0);
+        var thum = gallery.$('thumbnails');
+        thum.on = function() {
+            thum.css('opacity', 1);
+            $("#toggle").text('-');
+        };
+        thum.off = function() {
+            thum.css('opacity', 0);
+            $("#toggle").text('+');
+        };
+        thum.toggle = function() {
+            thum.css('opacity') == 0 ?  thum.on() :  thum.off();
+        };
+
+        $("#toggle").click(thum.toggle);
+        thum.off();
+
+        gallery.addIdleState(gallery.get('thumbnails'), {
+        });
+        gallery.attachKeyboard({
+            left: gallery.prev, // applies the native prev() function
+            right: gallery.next,
+            up: thum.on,
+            down: thum.off
+        });
+
+        function resizeGallery() {
+            gallery.rescale();
+        }
+
+        var active = false;
+        $(window).resize(function() {
+            if (active) {
+                active = true;
+                setTimeout(function() {
+                    active = false;
+                    resizeGallery();
+                }, 1000);
+            }
+        });
+    })
+</script>
+<script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-3241357-15']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+    })();
+
 </script>
 </body>
 </html>
